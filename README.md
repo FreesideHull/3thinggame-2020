@@ -9,6 +9,19 @@ Clone the repo and import the project
 
 Further distructions will be dropped into doc/ as and when i get chance to write them :)
 
+# Trello board
+
+https://trello.com/b/RZfPM5ND/freeside-3thinggame
+
+# Project Layout
+
+art/ - raw artwork
+docs/ - documentation
+bin/ - git and other binaries needed for development
+Testgame - the game
+
+in the root are all of the project files
+
 # Licence
 
-
+TBD
