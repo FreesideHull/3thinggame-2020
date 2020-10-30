@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
-"path": "res://TestGame/Test/git_api.gdns"
+"path": "res://witchbroomstickcat/Test/git_api.gdns"
 } ]
 _global_script_class_icons={
 "GitAPI": ""
@@ -30,7 +30,7 @@ window/stretch/aspect="keep"
 
 [gdnative]
 
-singletons=[ "res://TestGame/Test/git_api.gdnlib", "res://git_api.gdnlib" ]
+singletons=[ "res://TestGame/Test/git_api.gdnlib", "res://git_api.gdnlib", "res://witchbroomstickcat/Test/git_api.gdnlib" ]
 
 [input]
 
