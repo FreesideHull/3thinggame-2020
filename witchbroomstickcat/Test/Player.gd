@@ -11,6 +11,8 @@ func _ready():
 
 var collided = false;
 
+var can_shoot = true;
+
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
@@ -21,10 +23,21 @@ func _physics_process(delta):
 			print("Collided with: ", collision.collider.name)
 			if collision.collider.name == "Enemy2":
 				collided = true;
+				can_shoot = false;
 				$CollisionShape2D.disabled = true;
-				yield(get_tree().create_timer(3),"timeout")
 				PlayerData.lives -= 1
-				collided = false
+				print("timeout start")
+				$Sprite.modulate = Color(1, 1, 1, 0.5)
+				yield(get_tree().create_timer(0.5),"timeout")
+				print("timeout done")
+				$Sprite.modulate = Color(1, 1, 1, 1)
+				yield(get_tree().create_timer(0.5),"timeout")
+				$Sprite.modulate = Color(1, 1, 1, 0.5)
+				yield(get_tree().create_timer(0.5),"timeout")
+				$Sprite.modulate = Color(1, 1, 1, 1)
+				$CollisionShape2D.disabled = false;
+				collided = false;
+				can_shoot = true;
 			
 func get_input():
 	velocity = Vector2()
@@ -42,7 +55,7 @@ func get_input():
 	else:
 		$AnimationPlayer.play("Idle")
 	
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("fire") && can_shoot:
 		var fireball = FIREBALL.instance()
 		get_parent().add_child(fireball)
 		fireball.position = $FireballOrigin.global_position
