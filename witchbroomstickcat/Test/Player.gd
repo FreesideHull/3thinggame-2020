@@ -58,6 +58,12 @@ func get_input():
 		$Sprite.scale.x = 1
 	else:
 		$Sprite.scale.x = -1
+		
+		
+	if  Input.is_action_pressed("suicide"):
+		PlayerData.lives -= 1
+	if PlayerData.lives <= 0:
+					get_tree().change_scene("res://witchbroomstickcat/GameOverScreen/GameOverScreen.tscn")
 	
 	if Input.is_action_pressed("up"):
 		velocity.y -= Input.get_action_strength("up") * yspeed
@@ -72,6 +78,7 @@ func get_input():
 		var fireball = FIREBALL.instance()
 		get_parent().add_child(fireball)
 		fireball.position = $FireballOrigin.global_position
+
 	
 	velocity.x += 1 * speed
 
