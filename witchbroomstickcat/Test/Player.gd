@@ -3,11 +3,12 @@ extends KinematicBody2D
 var speed = 200
 var facing_right = true
 var velocity = Vector2()
+var bossfight = false
 
 func _ready():
 	pass # Replace with function body.
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 	
@@ -18,6 +19,9 @@ func get_input():
 		$Sprite.scale.x = 1
 	else:
 		$Sprite.scale.x = -1
+	
+	if bossfight != true:
+		velocity.x += 1
 	
 	if Input.is_action_pressed("up"):
 		velocity.y -= 1
