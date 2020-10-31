@@ -20,4 +20,5 @@ func _on_backButton_pressed():
 	
 
 func _on_FadeIn_fade_finished():
+	PlayerData.reset()
 	get_tree().change_scene(scene)

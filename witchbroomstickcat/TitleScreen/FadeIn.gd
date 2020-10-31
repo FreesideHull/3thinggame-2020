@@ -1,6 +1,5 @@
 extends ColorRect
 
-
 signal fade_finished
 
 func fade_in():
