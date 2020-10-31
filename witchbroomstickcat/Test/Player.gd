@@ -1,50 +1,35 @@
 extends KinematicBody2D
 
-const UP = Vector2(0,-1)
-const GRAVITY = 20
-const MAXFALLSPEED = 200
-const MAXSPEED = 80
-const JUMPFORCE = 300
-const ACCEL = 10
-
-var motion = Vector2()
+var speed = 200
 var facing_right = true
+var velocity = Vector2()
+
 func _ready():
 	pass # Replace with function body.
 
 func _physics_process(delta):
+	get_input()
+	velocity = move_and_slide(velocity)
 	
-	motion.y += GRAVITY
-	if motion.y > MAXFALLSPEED:
-		motion.y = MAXFALLSPEED
-	
+
+func get_input():
+	velocity = Vector2()
 	if facing_right == true:
 		$Sprite.scale.x = 1
 	else:
 		$Sprite.scale.x = -1
 	
-	motion.x = clamp(motion.x,-MAXSPEED,MAXSPEED)
+	if Input.is_action_pressed("up"):
+		velocity.y -= 1
+		$AnimationPlayer.play("Run")
 	
-	if Input.is_action_pressed("right"):
-		motion.x += ACCEL
-		facing_right = true
+	elif Input.is_action_pressed("down"):
+		velocity.y += 1
 		$AnimationPlayer.play("Run")
-	elif Input.is_action_pressed("left"):
-		motion.x -= ACCEL
-		facing_right = false
-		$AnimationPlayer.play("Run")
+	
 	else:
-		motion.x = lerp(motion.x,0,0.2)
 		$AnimationPlayer.play("Idle")
 	
-	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
-			motion.y = -JUMPFORCE
-	
-	if !is_on_floor():
-		if motion.y < 0:
-			$AnimationPlayer.play("Jump")
-		elif motion.y > 0:
-			$AnimationPlayer.play("Fall")
-	
-	motion = move_and_slide(motion,UP)
+	velocity = velocity.normalized() * speed
+
+
