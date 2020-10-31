@@ -13,7 +13,7 @@ func dead():
 	velocity = Vector2(0, 0)
 	$AnimatedSprite.play("dead")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_dead == false:
 		velocity.x -= speed
 		$AnimatedSprite.play("move")

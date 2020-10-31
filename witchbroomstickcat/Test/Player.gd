@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const FIREBALL = preload("res://Fireball.tscn")
+const FIREBALL = preload("res://witchbroomstickcat/Test/Fireball.tscn")
 
 var speed = 200
 var facing_right = true
