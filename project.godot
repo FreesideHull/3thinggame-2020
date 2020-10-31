@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Test"
-run/main_scene="res://TestGame/Test/World.tscn"
+run/main_scene="res://witchbroomstickcat/Test/World.tscn"
 
 [display]
 
@@ -30,7 +30,7 @@ window/stretch/aspect="keep"
 
 [gdnative]
 
-singletons=[ "res://TestGame/Test/git_api.gdnlib", "res://git_api.gdnlib", "res://witchbroomstickcat/Test/git_api.gdnlib" ]
+singletons=[ "res://witchbroomstickcat/Test/git_api.gdnlib", "res://git_api.gdnlib", "res://witchbroomstickcat/Test/git_api.gdnlib" ]
 
 [input]
 
@@ -52,4 +52,4 @@ jump={
 
 [rendering]
 
-environment/default_environment="res://TestGame/Test/default_env.tres"
+environment/default_environment="res://witchbroomstickcat/Test/default_env.tres"
