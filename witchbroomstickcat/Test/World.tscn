@@ -3,8 +3,9 @@
 [ext_resource path="res://witchbroomstickcat/Test/Player.gd" type="Script" id=1]
 [ext_resource path="res://witchbroomstickcat/Test/tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://witchbroomstickcat/Test/adventurer-Sheet.png" type="Texture" id=3]
-[ext_resource path="res://sounds/background.wav" type="AudioStream" id=4]
-[ext_resource path="res://witchbroomstickcat/Test/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://witchbroomstickcat/Test/Enemy.tscn" type="PackedScene" id=4]
+
+[ext_resource path="res://sounds/background.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
@@ -124,15 +125,13 @@ anims/Idle = SubResource( 3 )
 anims/Jump = SubResource( 4 )
 anims/Run = SubResource( 5 )
 
-<<<<<<< HEAD
 [node name="Music" type="AudioStreamPlayer" parent="Player"]
 pause_mode = 2
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 autoplay = true
-=======
+
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 344, 8 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 424, -40 )
->>>>>>> kane
