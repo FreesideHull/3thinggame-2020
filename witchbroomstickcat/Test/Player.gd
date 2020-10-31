@@ -6,6 +6,7 @@ var speed = 200
 var yspeed = 500
 var facing_right = true
 var velocity = Vector2()
+var distanceTraveled = 0;
 
 func _ready():
 	pass # Replace with function body.
@@ -14,10 +15,21 @@ var collided = false;
 
 var can_shoot = true;
 
+
+func DistanceTraveled():
+	var pos = $Sprite.get_global_transform().origin.x / 100;
+	var percent = pos / 240 * 100
+	print(percent)
+	PlayerData.levelprogress = percent;
+	#print(pos.x / 5)
+	#var progress = pos / 10
+
+
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
-	
+	DistanceTraveled()
+
 	if !collided:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
@@ -62,5 +74,7 @@ func get_input():
 		fireball.position = $FireballOrigin.global_position
 	
 	velocity.x += 1 * speed
+
+	
 	
 	#velocity = velocity.normalized() * speed
