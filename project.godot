@@ -27,6 +27,10 @@ run/main_scene="res://witchbroomstickcat/TitleScreen/TitleScreen.tscn"
 
 default_bus_layout=""
 
+[autoload]
+
+PlayerData="*res://witchbroomstickcat/Test/PlayerData.gd"
+
 [display]
 
 window/size/width=1280

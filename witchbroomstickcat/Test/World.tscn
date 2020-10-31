@@ -10,7 +10,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
-height = 15.0
+height = 22.4
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fall"
@@ -109,7 +109,6 @@ limit_top = 0
 limit_bottom = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2( 0, 3 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]

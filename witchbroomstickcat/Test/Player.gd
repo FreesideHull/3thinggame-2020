@@ -37,6 +37,11 @@ func get_input():
 	velocity.x += 1
 	
 	velocity = velocity.normalized() * speed
+	
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		print("Collided with: ", collision.collider.name)
+
 
 
 func take_damage() -> void:
