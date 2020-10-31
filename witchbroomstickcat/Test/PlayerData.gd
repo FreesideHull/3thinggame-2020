@@ -3,8 +3,8 @@ extends Node
 signal score_update
 signal lives_update
 
-export var score: = 0 setget set_score
-export var lives: = 3 setget set_lives
+var score = 0 setget set_score
+var lives = 3 setget set_lives
 
 func reset():
 	self.score = 0

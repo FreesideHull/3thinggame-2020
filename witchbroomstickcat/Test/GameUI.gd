@@ -6,6 +6,9 @@ onready var score_lives: Label = $Lives
 
 
 func _ready():
+	PlayerData.connect("score_update", self, "update_interface")
+
+
 	update_interface()
 
 
