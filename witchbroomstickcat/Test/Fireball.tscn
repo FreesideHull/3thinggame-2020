@@ -7,7 +7,6 @@
 [ext_resource path="res://witchbroomstickcat/Test/fireball/FB002.png" type="Texture" id=5]
 [ext_resource path="res://witchbroomstickcat/Test/fireball/FB004.png" type="Texture" id=6]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 4 ) ],
@@ -34,4 +33,5 @@ shape = SubResource( 2 )
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 position = Vector2( 4, -1.5 )
 scale = Vector2( 1.7, 0.85 )
+[connection signal="body_entered" from="." to="." method="_on_Fireball_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

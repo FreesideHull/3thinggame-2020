@@ -19,11 +19,6 @@ font_data = ExtResource( 2 )
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 3.3674
-margin_top = 2.24493
-margin_right = 3.36743
-margin_bottom = 2.24493
-script = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -53,7 +48,7 @@ margin_bottom = 560.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 518.0
+margin_right = 1040.0
 margin_bottom = 355.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -62,7 +57,7 @@ alignment = 1
 
 [node name="StartGameButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 147.0
-margin_right = 518.0
+margin_right = 1040.0
 margin_bottom = 207.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
@@ -70,14 +65,8 @@ flat = true
 align = 0
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/StartGameButton"]
-anchor_left = 0.197
-anchor_top = -0.655
-anchor_right = 0.823
-anchor_bottom = 1.467
-margin_left = 14.954
-margin_top = -0.822433
-margin_right = -11.314
-margin_bottom = -1.14244
+margin_right = 40.0
+margin_bottom = 14.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
 custom_constants/shadow_offset_x = 0
@@ -88,45 +77,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 522.0
-margin_right = 1040.0
-margin_bottom = 355.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 41
-alignment = 1
-
-[node name="creditsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
-margin_top = 147.0
-margin_right = 518.0
-margin_bottom = 207.0
-rect_min_size = Vector2( 0, 60 )
-size_flags_horizontal = 3
-flat = true
-align = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2/creditsButton"]
-anchor_left = 0.277
-anchor_top = -0.604
-anchor_right = 0.632
-anchor_bottom = 1.512
-margin_left = 0.0666046
-margin_top = -0.0264473
-margin_right = 0.176605
-margin_bottom = 0.0135498
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 2
-text = "credits
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FadeIn" parent="." instance=ExtResource( 4 )]
 visible = false
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/creditsButton" to="." method="_on_creditsButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
