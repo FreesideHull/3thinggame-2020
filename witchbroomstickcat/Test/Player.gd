@@ -26,7 +26,12 @@ func get_input():
 	elif Input.is_action_pressed("down"):
 		velocity.y += 1
 		$AnimationPlayer.play("Run")
-	
+	elif Input.is_action_pressed("left"):
+		velocity.x -= 1
+		$AnimationPlayer.play("Run")
+	elif Input.is_action_pressed("right"):
+		velocity.x += 1
+		$AnimationPlayer.play("Run")
 	else:
 		$AnimationPlayer.play("Idle")
 	
