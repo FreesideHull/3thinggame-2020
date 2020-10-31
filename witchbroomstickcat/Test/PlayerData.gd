@@ -4,7 +4,7 @@ signal score_update
 signal lives_update
 
 var score = 0 setget set_score
-var lives = 1 setget set_lives
+var lives = 3 setget set_lives
 
 func reset():
 	self.score = 0
