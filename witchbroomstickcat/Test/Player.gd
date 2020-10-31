@@ -21,10 +21,10 @@ func get_input():
 		$Sprite.scale.x = -1
 	
 	if Input.is_action_pressed("up"):
-		velocity.y -= 1
+		velocity.y -= Input.get_action_strength("up")
 		$AnimationPlayer.play("Run")
 	elif Input.is_action_pressed("down"):
-		velocity.y += 1
+		velocity.y += Input.get_action_strength("down")
 		$AnimationPlayer.play("Run")
 	else:
 		$AnimationPlayer.play("Idle")
@@ -32,10 +32,14 @@ func get_input():
 	if Input.is_action_just_pressed("fire"):
 		var fireball = FIREBALL.instance()
 		get_parent().add_child(fireball)
-		fireball.position = $Position2D.global_position
+		fireball.position = $FireballOrigin.global_position
 	
 	velocity.x += 1
 	
 	velocity = velocity.normalized() * speed
 
 
+func take_damage() -> void:
+	pass
+	#PlayerData.lives -= 1
+	#queue_free()

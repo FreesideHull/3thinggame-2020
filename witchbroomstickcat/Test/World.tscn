@@ -123,7 +123,8 @@ pause_mode = 2
 stream = ExtResource( 5 )
 autoplay = true
 
-[node name="Position2D" type="Position2D" parent="Player"]
+[node name="FireballOrigin" type="Position2D" parent="Player"]
+position = Vector2( 25.6, 0 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 608, 256 )
@@ -154,9 +155,9 @@ __meta__ = {
 }
 
 [node name="Lives" type="Label" parent="CanvasLayer/GameUI"]
-margin_left = 1088.0
+margin_left = 1113.0
 margin_top = 64.0
-margin_right = 1237.0
+margin_right = 1262.0
 margin_bottom = 102.0
 custom_fonts/font = SubResource( 6 )
 text = "Lives: %s"

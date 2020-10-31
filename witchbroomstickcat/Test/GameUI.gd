@@ -6,7 +6,8 @@ onready var score_lives: Label = $Lives
 
 
 func _ready():
-	pass # Replace with function body.
+	update_interface()
+
 
 func update_interface() -> void:
 	score_label.text = "Score: %s" % 0
