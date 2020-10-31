@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "",
 "class": "GitAPI",
 "language": "NativeScript",
-"path": "res://witchbroomstickcat/Test/git_api.gdns"
+"path": "res://git_api.gdns"
 } ]
 _global_script_class_icons={
 "GitAPI": ""
@@ -40,7 +40,7 @@ window/stretch/aspect="keep"
 
 [gdnative]
 
-singletons=[ "res://witchbroomstickcat/Test/git_api.gdnlib", "res://git_api.gdnlib", "res://witchbroomstickcat/Test/git_api.gdnlib" ]
+singletons=[ "res://git_api.gdnlib" ]
 
 [input]
 

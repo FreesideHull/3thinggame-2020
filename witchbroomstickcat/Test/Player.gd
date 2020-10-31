@@ -3,6 +3,7 @@ extends KinematicBody2D
 const FIREBALL = preload("res://witchbroomstickcat/Test/Fireball.tscn")
 
 var speed = 200
+var yspeed = 500
 var facing_right = true
 var velocity = Vector2()
 
@@ -20,8 +21,7 @@ func _physics_process(delta):
 	if !collided:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
-			print("Collided with: ", collision.collider.name)
-			if collision.collider.name == "Enemy2":
+			if collision != null && collision.collider != null && collision.collider.name == "Enemy2":
 				collided = true;
 				can_shoot = false;
 				PlayerData.lives -= 1
@@ -40,12 +40,6 @@ func _physics_process(delta):
 					collided = false;
 					can_shoot = true;
 
-
-
-
-
-	
-
 func get_input():
 	velocity = Vector2()
 	if facing_right == true:
@@ -54,10 +48,10 @@ func get_input():
 		$Sprite.scale.x = -1
 	
 	if Input.is_action_pressed("up"):
-		velocity.y -= Input.get_action_strength("up")
+		velocity.y -= Input.get_action_strength("up") * yspeed
 		$AnimationPlayer.play("Run")
 	elif Input.is_action_pressed("down"):
-		velocity.y += Input.get_action_strength("down")
+		velocity.y += Input.get_action_strength("down") * yspeed
 		$AnimationPlayer.play("Run")
 	else:
 		$AnimationPlayer.play("Idle")
@@ -67,14 +61,6 @@ func get_input():
 		get_parent().add_child(fireball)
 		fireball.position = $FireballOrigin.global_position
 	
-	velocity.x += 1
+	velocity.x += 1 * speed
 	
-	velocity = velocity.normalized() * speed
-	
-
-
-
-func take_damage() -> void:
-	pass
-	#PlayerData.lives -= 1
-	#queue_free()
+	#velocity = velocity.normalized() * speed
