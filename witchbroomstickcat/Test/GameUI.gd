@@ -1,8 +1,8 @@
 extends Control
 
-
 onready var score_label: Label = $Score
 onready var score_lives: Label = $Lives
+var score = 0
 
 
 func _ready():

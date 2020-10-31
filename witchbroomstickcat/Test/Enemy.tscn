@@ -44,6 +44,8 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=7]
 
 [node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 1, -4 )
+scale = Vector2( 3, 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true

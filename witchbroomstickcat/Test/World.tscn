@@ -7,6 +7,7 @@
 [ext_resource path="res://sounds/background.ogg" type="AudioStream" id=5]
 [ext_resource path="res://fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://witchbroomstickcat/Test/GameUI.gd" type="Script" id=7]
+[ext_resource path="res://witchbroomstickcat/Test/enemiespawner.gd" type="Script" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
@@ -84,6 +85,7 @@ size = 30
 font_data = ExtResource( 6 )
 
 [node name="World" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )
@@ -93,8 +95,11 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 224, 384 )
-scale = Vector2( 5, 5 )
+scale = Vector2( 3, 3 )
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Player"]
 texture = ExtResource( 3 )
@@ -109,6 +114,10 @@ limit_top = 0
 limit_bottom = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+<<<<<<< HEAD
+=======
+position = Vector2( 0, 3.2 )
+>>>>>>> kane
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
@@ -124,14 +133,6 @@ autoplay = true
 
 [node name="FireballOrigin" type="Position2D" parent="Player"]
 position = Vector2( 25.6, 0 )
-
-[node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 608, 256 )
-scale = Vector2( 5, 5 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 663.154, 392.485 )
-scale = Vector2( 5, 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -154,6 +155,8 @@ __meta__ = {
 }
 
 [node name="Lives" type="Label" parent="CanvasLayer/GameUI"]
+anchor_left = -0.025
+anchor_right = -0.025
 margin_left = 1113.0
 margin_top = 64.0
 margin_right = 1262.0
@@ -170,7 +173,7 @@ margin_top = 64.0
 margin_right = 181.0
 margin_bottom = 102.0
 custom_fonts/font = SubResource( 6 )
-text = "Score: %s"
+text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
