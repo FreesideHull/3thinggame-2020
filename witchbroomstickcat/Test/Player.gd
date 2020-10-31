@@ -11,7 +11,7 @@ func _ready():
 func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
-	
+
 
 func get_input():
 	velocity = Vector2()
