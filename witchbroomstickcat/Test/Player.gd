@@ -33,7 +33,8 @@ func _physics_process(delta):
 	if !collided:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
-			if collision != null && collision.collider != null && collision.collider.name == "Enemy2":
+			print(collision.collider.name)
+			if collision != null && collision.collider != null && "Enemy" in collision.collider.name:
 				collided = true;
 				can_shoot = false;
 				PlayerData.lives -= 1
