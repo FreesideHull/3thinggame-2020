@@ -103,6 +103,7 @@ hframes = 7
 frame = 22
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2( 500, 0 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -126,11 +127,11 @@ autoplay = true
 position = Vector2( 25.6, 0 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 608, 256 )
+position = Vector2( 1568, 288 )
 scale = Vector2( 5, 5 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 663.154, 392.485 )
+position = Vector2( 1623.15, 424.485 )
 scale = Vector2( 5, 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
