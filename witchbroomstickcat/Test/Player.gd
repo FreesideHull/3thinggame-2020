@@ -46,19 +46,15 @@ func get_input():
 		$Sprite.scale.x = 1
 	else:
 		$Sprite.scale.x = -1
-<<<<<<< HEAD
+		
 		
 	if  Input.is_action_pressed("suicide"):
 		PlayerData.lives -= 1
 	if PlayerData.lives <= 0:
 					get_tree().change_scene("res://witchbroomstickcat/GameOverScreen/GameOverScreen.tscn")
-	elif Input.is_action_pressed("up"):
-		velocity.y -= Input.get_action_strength("up")
-=======
 	
 	if Input.is_action_pressed("up"):
 		velocity.y -= Input.get_action_strength("up") * yspeed
->>>>>>> boss
 		$AnimationPlayer.play("Run")
 	elif Input.is_action_pressed("down"):
 		velocity.y += Input.get_action_strength("down") * yspeed
