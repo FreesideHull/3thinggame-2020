@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const FIREBALL = preload("res://Fireball.tscn")
+
 var speed = 200
 var facing_right = true
 var velocity = Vector2()
@@ -26,6 +28,11 @@ func get_input():
 		$AnimationPlayer.play("Run")
 	else:
 		$AnimationPlayer.play("Idle")
+	
+	if Input.is_action_just_pressed("fire"):
+		var fireball = FIREBALL.instance()
+		get_parent().add_child(fireball)
+		fireball.position = $Position2D.global_position
 	
 	velocity.x += 1
 	
