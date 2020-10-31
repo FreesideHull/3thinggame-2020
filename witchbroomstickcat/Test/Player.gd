@@ -24,21 +24,28 @@ func _physics_process(delta):
 			if collision.collider.name == "Enemy2":
 				collided = true;
 				can_shoot = false;
-				$CollisionShape2D.disabled = true;
 				PlayerData.lives -= 1
-				print("timeout start")
-				$Sprite.modulate = Color(1, 1, 1, 0.5)
-				yield(get_tree().create_timer(0.5),"timeout")
-				print("timeout done")
-				$Sprite.modulate = Color(1, 1, 1, 1)
-				yield(get_tree().create_timer(0.5),"timeout")
-				$Sprite.modulate = Color(1, 1, 1, 0.5)
-				yield(get_tree().create_timer(0.5),"timeout")
-				$Sprite.modulate = Color(1, 1, 1, 1)
-				$CollisionShape2D.disabled = false;
-				collided = false;
-				can_shoot = true;
-			
+				$CollisionShape2D.disabled = true;
+				if PlayerData.lives <= 0:
+					get_tree().change_scene("res://witchbroomstickcat/GameOverScreen/GameOverScreen.tscn")
+				else:
+					$Sprite.modulate = Color(1, 1, 1, 0.5)
+					yield(get_tree().create_timer(0.5),"timeout")
+					$Sprite.modulate = Color(1, 1, 1, 1)
+					yield(get_tree().create_timer(0.5),"timeout")
+					$Sprite.modulate = Color(1, 1, 1, 0.5)
+					yield(get_tree().create_timer(0.5),"timeout")
+					$Sprite.modulate = Color(1, 1, 1, 1)
+					$CollisionShape2D.disabled = false;
+					collided = false;
+					can_shoot = true;
+
+
+
+
+
+	
+
 func get_input():
 	velocity = Vector2()
 	if facing_right == true:
