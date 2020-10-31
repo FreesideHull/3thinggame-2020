@@ -9,10 +9,23 @@ var velocity = Vector2()
 func _ready():
 	pass # Replace with function body.
 
+var collided = false;
+
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 	
+	if !collided:
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			print("Collided with: ", collision.collider.name)
+			if collision.collider.name == "Enemy2":
+				collided = true;
+				$CollisionShape2D.disabled = true;
+				yield(get_tree().create_timer(3),"timeout")
+				PlayerData.lives -= 1
+				collided = false
+			
 func get_input():
 	velocity = Vector2()
 	if facing_right == true:
@@ -38,9 +51,6 @@ func get_input():
 	
 	velocity = velocity.normalized() * speed
 	
-	for i in get_slide_count():
-		var collision = get_slide_collision(i)
-		print("Collided with: ", collision.collider.name)
 
 
 
