@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Test"
-run/main_scene="res://witchbroomstickcat/Test/World.tscn"
+run/main_scene="res://witchbroomstickcat/TitleScreen/TitleScreen.tscn"
 
 [audio]
 
@@ -29,6 +29,8 @@ default_bus_layout=""
 
 [display]
 
+window/size/width=1280
+window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -38,12 +40,6 @@ singletons=[ "res://witchbroomstickcat/Test/git_api.gdnlib", "res://git_api.gdnl
 
 [input]
 
-ui_up={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":12,"pressure":0.0,"pressed":false,"script":null)
- ]
-}
 right={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
@@ -54,17 +50,13 @@ left={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
  ]
 }
-up={
+jump={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
- ]
-}
-down={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
 
 [rendering]
 
+environment/default_clear_color=Color( 0.0627451, 0.2, 0.360784, 1 )
 environment/default_environment="res://witchbroomstickcat/Test/default_env.tres"
