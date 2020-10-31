@@ -6,7 +6,7 @@ var velocity = Vector2()
 func _ready():
 	pass
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	velocity.x -= speed
 	$AnimatedSprite.play("move")
 	

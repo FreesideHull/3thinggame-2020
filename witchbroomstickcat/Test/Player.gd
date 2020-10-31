@@ -10,7 +10,7 @@ func _ready():
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
-
+	
 func get_input():
 	velocity = Vector2()
 	if facing_right == true:
@@ -24,14 +24,10 @@ func get_input():
 	elif Input.is_action_pressed("down"):
 		velocity.y += 1
 		$AnimationPlayer.play("Run")
-	elif Input.is_action_pressed("left"):
-		velocity.x -= 1
-		$AnimationPlayer.play("Run")
-	elif Input.is_action_pressed("right"):
-		velocity.x += 1
-		$AnimationPlayer.play("Run")
 	else:
 		$AnimationPlayer.play("Idle")
+	
+	velocity.x += 1
 	
 	velocity = velocity.normalized() * speed
 
