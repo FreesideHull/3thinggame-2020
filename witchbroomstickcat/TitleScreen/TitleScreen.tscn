@@ -44,21 +44,43 @@ align = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 205.0
 margin_right = 1040.0
-margin_bottom = 380.0
+margin_bottom = 560.0
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_right = 1040.0
-margin_bottom = 175.0
+margin_bottom = 355.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/separation = 41
+custom_constants/separation = 76
 alignment = 1
 
-[node name="StartGameButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 57.0
+[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 79.0
 margin_right = 1040.0
-margin_bottom = 117.0
+margin_bottom = 139.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+flat = true
+align = 0
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/CreditsButton"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/shadow_offset_y = 2
+text = "Credits
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGameButton" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 215.0
+margin_right = 1040.0
+margin_bottom = 275.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
 flat = true
@@ -77,44 +99,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 384.0
-margin_right = 1040.0
-margin_bottom = 560.0
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_right = 1040.0
-margin_bottom = 176.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/separation = 41
-alignment = 1
-
-[node name="CreditsButton" type="Button" parent="VBoxContainer/HBoxContainer2/VBoxContainer"]
-margin_top = 58.0
-margin_right = 1040.0
-margin_bottom = 118.0
-rect_min_size = Vector2( 0, 60 )
-size_flags_horizontal = 3
-flat = true
-align = 0
-
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/VBoxContainer/CreditsButton"]
-margin_right = 40.0
-margin_bottom = 14.0
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
-custom_constants/shadow_offset_x = 0
-custom_constants/shadow_offset_y = 2
-text = "Credits
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="FadeIn" parent="." instance=ExtResource( 4 )]
 visible = false
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/CreditsButton" to="." method="_on_creditsButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer2/VBoxContainer/CreditsButton" to="." method="_on_creditsButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
