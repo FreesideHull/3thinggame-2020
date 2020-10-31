@@ -1,4 +1,5 @@
 extends Area2D
+extends Playerdata
 
 const speed = 300
 var velocity = Vector2()
