@@ -1,6 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://TestGame/Test/Ground.png" type="Texture" id=1]
+[ext_resource path="res://witchbroomstickcat/Test/Ground.png" type="Texture" id=1]
+
 
 
 

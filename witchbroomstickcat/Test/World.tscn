@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://TestGame/Test/Player.gd" type="Script" id=1]
-[ext_resource path="res://TestGame/Test/tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://TestGame/Test/adventurer-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://witchbroomstickcat/Test/Player.gd" type="Script" id=1]
+[ext_resource path="res://witchbroomstickcat/Test/tiles.tres" type="TileSet" id=2]
+[ext_resource path="res://witchbroomstickcat/Test/adventurer-Sheet.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 8.0
