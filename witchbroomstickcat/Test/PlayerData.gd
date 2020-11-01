@@ -10,7 +10,7 @@ var score = 0 setget set_score
 var lives = 5 setget set_lives
 var boss_health = 100 setget set_boss_health
 var worldpos = 0
-
+var position: Vector2;
 func reset():
 	self.score = 0
 	self.lives = 5
