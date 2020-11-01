@@ -5,7 +5,7 @@
 [ext_resource path="res://witchbroomstickcat/Ground/Ground.tres" type="Animation" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1097.88, 24.133 )
+extents = Vector2( 2277.66, 24.133 )
 
 [node name="Ground" type="Area2D"]
 position = Vector2( 238.911, 451.342 )
@@ -14,8 +14,8 @@ collision_mask = 0
 script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 385.688, 243.349 )
-scale = Vector2( 0.609417, 0.25 )
+position = Vector2( 1019.96, 243.349 )
+scale = Vector2( 1.2296, 0.25 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 1328, 2050, 194 )
@@ -24,5 +24,5 @@ region_rect = Rect2( 0, 1328, 2050, 194 )
 anims/scrolling = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 5.24261, 230.565 )
+position = Vector2( 5.24261, 229.151 )
 shape = SubResource( 1 )
