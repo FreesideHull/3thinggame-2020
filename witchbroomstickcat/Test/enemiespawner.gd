@@ -32,6 +32,11 @@ func _ready():
 
 
 func on_timeout_complete():
-	can_spawn = true
 	timer = 100.0
-	_ready()
+	var en = get_tree().get_nodes_in_group("enemies")
+	if len(en) < 10:
+		can_spawn = true
+		_ready()
+	else:
+		can_spawn = false
+		_ready()

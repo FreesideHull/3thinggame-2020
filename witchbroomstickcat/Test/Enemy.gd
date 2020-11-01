@@ -5,7 +5,9 @@ var velocity = Vector2()
 
 var is_dead = false
 
+
 func _ready():
+	add_to_group("enemies")
 	pass
 
 func dead():
