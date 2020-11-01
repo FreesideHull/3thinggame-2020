@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
+[ext_resource path="res://art/TheWitch.png" type="Texture" id=1]
 [ext_resource path="res://fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://NewGame.gd" type="Script" id=3]
 [ext_resource path="res://witchbroomstickcat/TitleScreen/FadeIn.tscn" type="PackedScene" id=4]
 
-[sub_resource type="BitmapFont" id=3]
+[sub_resource type="BitmapFont" id=1]
 height = 2.0
 
 [sub_resource type="DynamicFont" id=2]
@@ -54,7 +55,7 @@ margin_right = 1040.0
 margin_bottom = 310.0
 rect_min_size = Vector2( 0, 60 )
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "cleck here to go back"
 flat = true
 align = 0
@@ -64,9 +65,9 @@ visible = false
 
 [node name="Label" type="Label" parent="."]
 margin_left = -338.684
-margin_top = 2.60535
+margin_top = 51.9935
 margin_right = 1629.32
-margin_bottom = 680.605
+margin_bottom = 729.993
 size_flags_horizontal = 4
 custom_fonts/font = SubResource( 2 )
 text = "Credits
@@ -79,5 +80,15 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 163.879, 538.781 )
+scale = Vector2( 0.316993, 0.316087 )
+texture = ExtResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 1075.32, 520.822 )
+scale = Vector2( 0.316993, 0.316087 )
+texture = ExtResource( 1 )
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/backButton" to="." method="_on_backButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]

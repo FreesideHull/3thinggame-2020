@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/batsprite.png-1a39fcd37cf9274ffe00160a51dee9b9.stex"
+path="res://.import/FB003.png-e0a558f1c610fd9c74182b92249fa2f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://witchbroomstickcat/Test/batsprite.png"
-dest_files=[ "res://.import/batsprite.png-1a39fcd37cf9274ffe00160a51dee9b9.stex" ]
+source_file="res://art/fireball/FB003.png"
+dest_files=[ "res://.import/FB003.png-e0a558f1c610fd9c74182b92249fa2f3.stex" ]
 
 [params]
 

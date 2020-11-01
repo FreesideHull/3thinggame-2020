@@ -1,20 +1,47 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://witchbroomstickcat/Test/Player.gd" type="Script" id=1]
-[ext_resource path="res://witchbroomstickcat/Test/tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://witchbroomstickcat/Test/adventurer-Sheet.png" type="Texture" id=3]
+[ext_resource path="res://witchbroomstickcat/Ground/Ground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://art/TheWitch.png" type="Texture" id=3]
 [ext_resource path="res://witchbroomstickcat/Test/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sounds/background.ogg" type="AudioStream" id=5]
 [ext_resource path="res://fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://witchbroomstickcat/Test/GameUI.gd" type="Script" id=7]
 [ext_resource path="res://witchbroomstickcat/Test/enemiespawner.gd" type="Script" id=8]
+[ext_resource path="res://sounds/spell.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/cackle.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/wetspell.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/laugh.wav" type="AudioStream" id=12]
 [ext_resource path="res://witchbroomstickcat/Test/Boss.tscn" type="PackedScene" id=9]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "fall",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 8.0
 height = 22.4
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -30,7 +57,7 @@ tracks/0/keys = {
 "values": [ 22, 23 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -46,22 +73,22 @@ tracks/0/keys = {
 "values": [ 0, 0, 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 0.7
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("Sprite:frames")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ 15, 16, 17, 18, 19, 20, 21 ]
+"values": [  ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -77,74 +104,67 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Gradient" id=7]
-colors = PoolColorArray( 0.582031, 0.0136414, 0.0136414, 1, 0.628906, 0.0687866, 0.0687866, 1 )
+[sub_resource type="Animation" id=7]
+resource_name = "move"
 
-[sub_resource type="GradientTexture" id=8]
-gradient = SubResource( 7 )
-
-[sub_resource type="StyleBoxTexture" id=9]
-texture = SubResource( 8 )
-region_rect = Rect2( 0, 0, 2048, 1 )
-
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=8]
 size = 30
 font_data = ExtResource( 6 )
 
 [node name="World" type="Node2D"]
 script = ExtResource( 8 )
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 47, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 51, 0, 0, 52, 0, 0, 53, 0, 0, 54, 0, 0, 55, 0, 0, 56, 0, 0, 57, 0, 0, 58, 0, 0, 59, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64, 0, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 79, 0, 0, 80, 0, 0, 81, 0, 0, 82, 0, 0, 83, 0, 0, 84, 0, 0, 85, 0, 0, 86, 0, 0, 87, 0, 0, 88, 0, 0, 89, 0, 0, 90, 0, 0, 91, 0, 0, 92, 0, 0, 93, 0, 0, 94, 0, 0, 95, 0, 0, 96, 0, 0, 97, 0, 0, 98, 0, 0, 99, 0, 0, 100, 0, 0, 101, 0, 0, 102, 0, 0, 103, 0, 0, 104, 0, 0, 105, 0, 0, 106, 0, 0, 107, 0, 0, 108, 0, 0, 109, 0, 0, 110, 0, 0, 111, 0, 0, 112, 0, 0, 113, 0, 0, 114, 0, 0, 115, 0, 0, 116, 0, 0, 117, 0, 0, 118, 0, 0, 119, 0, 0, 120, 0, 0, 121, 0, 0, 122, 0, 0, 123, 0, 0, 124, 0, 0, 125, 0, 0, 126, 0, 0, 127, 0, 0, 128, 0, 0, 129, 0, 0, 130, 0, 0, 131, 0, 0, 132, 0, 0, 133, 0, 0, 134, 0, 0, 135, 0, 0, 136, 0, 0, 137, 0, 0, 138, 0, 0, 139, 0, 0, 140, 0, 0, 141, 0, 0, 142, 0, 0, 143, 0, 0, 144, 0, 0, 145, 0, 0, 146, 0, 0, 147, 0, 0, 148, 0, 0, 149, 0, 0, 150, 0, 0, 151, 0, 0, 152, 0, 0, 153, 0, 0, 154, 0, 0, 155, 0, 0, 156, 0, 0, 157, 0, 0, 158, 0, 0, 159, 0, 0, 160, 0, 0, 161, 0, 0, 162, 0, 0, 163, 0, 0, 164, 0, 0, 165, 0, 0, 166, 0, 0, 167, 0, 0, 168, 0, 0, 169, 0, 0, 170, 0, 0, 171, 0, 0, 172, 0, 0, 173, 0, 0, 174, 0, 0, 175, 0, 0, 176, 0, 0, 177, 0, 0, 178, 0, 0, 179, 0, 0, 180, 0, 0, 181, 0, 0, 182, 0, 0, 183, 0, 0, 184, 0, 0, 185, 0, 0, 186, 0, 0, 187, 0, 0, 188, 0, 0, 189, 0, 0, 190, 0, 0, 191, 0, 0, 192, 0, 0, 193, 0, 0, 194, 0, 0, 195, 0, 0, 196, 0, 0, 197, 0, 0, 198, 0, 0, 199, 0, 0, 1441792, 0, 0, 1441793, 0, 0, 1441794, 0, 0, 1441795, 0, 0, 1441796, 0, 0, 1441797, 0, 0, 1441798, 0, 0, 1441799, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 1441802, 0, 0, 1441803, 0, 0, 1441804, 0, 0, 1441805, 0, 0, 1441806, 0, 0, 1441807, 0, 0, 1441808, 0, 0, 1441809, 0, 0, 1441810, 0, 0, 1441811, 0, 0, 1441812, 0, 0, 1441813, 0, 0, 1441814, 0, 0, 1441815, 0, 0, 1441816, 0, 0, 1441817, 0, 0, 1441818, 0, 0, 1441819, 0, 0, 1441820, 0, 0, 1441821, 0, 0, 1441822, 0, 0, 1441823, 0, 0, 1441824, 0, 0, 1441825, 0, 0, 1441826, 0, 0, 1441827, 0, 0, 1441828, 0, 0, 1441829, 0, 0, 1441830, 0, 0, 1441831, 0, 0, 1441832, 0, 0, 1441833, 0, 0, 1441834, 0, 0, 1441835, 0, 0, 1441836, 0, 0, 1441837, 0, 0, 1441838, 0, 0, 1441839, 0, 0, 1441840, 0, 0, 1441841, 0, 0, 1441842, 0, 0, 1441843, 0, 0, 1441844, 0, 0, 1441845, 0, 0, 1441846, 0, 0, 1441847, 0, 0, 1441848, 0, 0, 1441849, 0, 0, 1441850, 0, 0, 1441851, 0, 0, 1441852, 0, 0, 1441853, 0, 0, 1441854, 0, 0, 1441855, 0, 0, 1441856, 0, 0, 1441857, 0, 0, 1441858, 0, 0, 1441859, 0, 0, 1441860, 0, 0, 1441861, 0, 0, 1441862, 0, 0, 1441863, 0, 0, 1441864, 0, 0, 1441865, 0, 0, 1441866, 0, 0, 1441867, 0, 0, 1441868, 0, 0, 1441869, 0, 0, 1441870, 0, 0, 1441871, 0, 0, 1441872, 0, 0, 1441873, 0, 0, 1441874, 0, 0, 1441875, 0, 0, 1441876, 0, 0, 1441877, 0, 0, 1441878, 0, 0, 1441879, 0, 0, 1441880, 0, 0, 1441881, 0, 0, 1441882, 0, 0, 1441883, 0, 0, 1441884, 0, 0, 1441885, 0, 0, 1441886, 0, 0, 1441887, 0, 0, 1441888, 0, 0, 1441889, 0, 0, 1441890, 0, 0, 1441891, 0, 0, 1441892, 0, 0, 1441893, 0, 0, 1441894, 0, 0, 1441895, 0, 0, 1441896, 0, 0, 1441897, 0, 0, 1441898, 0, 0, 1441899, 0, 0, 1441900, 0, 0, 1441901, 0, 0, 1441902, 0, 0, 1441903, 0, 0, 1441904, 0, 0, 1441905, 0, 0, 1441906, 0, 0, 1441907, 0, 0, 1441908, 0, 0, 1441909, 0, 0, 1441910, 0, 0, 1441911, 0, 0, 1441912, 0, 0, 1441913, 0, 0, 1441914, 0, 0, 1441915, 0, 0, 1441916, 0, 0, 1441917, 0, 0, 1441918, 0, 0, 1441919, 0, 0, 1441920, 0, 0, 1441921, 0, 0, 1441922, 0, 0, 1441923, 0, 0, 1441924, 0, 0, 1441925, 0, 0, 1441926, 0, 0, 1441927, 0, 0, 1441928, 0, 0, 1441929, 0, 0, 1441930, 0, 0, 1441931, 0, 0, 1441932, 0, 0, 1441933, 0, 0, 1441934, 0, 0, 1441935, 0, 0, 1441936, 0, 0, 1441937, 0, 0, 1441938, 0, 0, 1441939, 0, 0, 1441940, 0, 0, 1441941, 0, 0, 1441942, 0, 0, 1441943, 0, 0, 1441944, 0, 0, 1441945, 0, 0, 1441946, 0, 0, 1441947, 0, 0, 1441948, 0, 0, 1441949, 0, 0, 1441950, 0, 0, 1441951, 0, 0, 1441952, 0, 0, 1441953, 0, 0, 1441954, 0, 0, 1441955, 0, 0, 1441956, 0, 0, 1441957, 0, 0, 1441958, 0, 0, 1441959, 0, 0, 1441960, 0, 0, 1441961, 0, 0, 1441962, 0, 0, 1441963, 0, 0, 1441964, 0, 0, 1441965, 0, 0, 1441966, 0, 0, 1441967, 0, 0, 1441968, 0, 0, 1441969, 0, 0, 1441970, 0, 0, 1441971, 0, 0, 1441972, 0, 0, 1441973, 0, 0, 1441974, 0, 0, 1441975, 0, 0, 1441976, 0, 0, 1441977, 0, 0, 1441978, 0, 0, 1441979, 0, 0, 1441980, 0, 0, 1441981, 0, 0, 1441982, 0, 0, 1441983, 0, 0, 1441984, 0, 0, 1441985, 0, 0, 1441986, 0, 0, 1441987, 0, 0, 1441988, 0, 0, 1441989, 0, 0, 1441990, 0, 0, 1441991, 0, 0 )
-
-[node name="Music" type="AudioStreamPlayer" parent="."]
-pause_mode = 2
-stream = ExtResource( 5 )
-autoplay = true
+[node name="Ground" parent="." instance=ExtResource( 2 )]
+position = Vector2( 726.911, 435.342 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
-position = Vector2( 96, 384 )
-scale = Vector2( 5, 5 )
+position = Vector2( 589.321, 400.036 )
+scale = Vector2( 3, 3 )
+z_as_relative = false
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 
+[node name="Sprite" type="AnimatedSprite" parent="Player"]
+scale = Vector2( 0.0407854, 0.0414353 )
+z_as_relative = false
+frames = SubResource( 1 )
+animation = "run"
+playing = true
+
 [node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2( 400, 0 )
+offset = Vector2( 500, 0 )
 current = true
 limit_left = 0
 limit_top = 0
 limit_bottom = 120
 
-[node name="Sprite" type="Sprite" parent="Player"]
-texture = ExtResource( 3 )
-vframes = 11
-hframes = 7
-frame = 23
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0, 3.2 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-anims/Fall = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-anims/Jump = SubResource( 4 )
-anims/Run = SubResource( 5 )
+anims/Fall = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Run = SubResource( 6 )
+anims/move = SubResource( 7 )
+
+[node name="Music" type="AudioStreamPlayer" parent="Player"]
+pause_mode = 2
+stream = ExtResource( 5 )
+autoplay = true
 
 [node name="FireballOrigin" type="Position2D" parent="Player"]
 position = Vector2( 25.6, 0 )
 
 [node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1568, 288 )
+position = Vector2( 752, 88 )
 scale = Vector2( 5, 5 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1623.15, 424.485 )
+position = Vector2( 1095.13, 96.494 )
 scale = Vector2( 5, 5 )
 
 [node name="Boss" parent="." instance=ExtResource( 9 )]
@@ -190,7 +210,7 @@ margin_left = 1113.0
 margin_top = 64.0
 margin_right = 1262.0
 margin_bottom = 102.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "Lives: %s"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -201,8 +221,20 @@ margin_left = 32.0
 margin_top = 64.0
 margin_right = 181.0
 margin_bottom = 102.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cackle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="spell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="wetspell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="laugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )

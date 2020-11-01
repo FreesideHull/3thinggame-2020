@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/FB001.png-dec4ba349131fe9b8cdeb6407be2a95d.stex"
+path="res://.import/BetaBG.png-5e2a0436dd898d79ca523ed34b8e283c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://witchbroomstickcat/Test/fireball/FB001.png"
-dest_files=[ "res://.import/FB001.png-dec4ba349131fe9b8cdeb6407be2a95d.stex" ]
+source_file="res://art/BetaBG.png"
+dest_files=[ "res://.import/BetaBG.png-5e2a0436dd898d79ca523ed34b8e283c.stex" ]
 
 [params]
 
