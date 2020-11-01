@@ -34,6 +34,7 @@ func DistanceTraveled():
 		
 func _physics_process(delta):
 	PlayerData.position = $Sprite.get_global_transform().origin;
+	PlayerData.worldpos = $Sprite.get_global_transform().origin.x
 	DistanceTraveled()
 	get_input()
 	velocity = move_and_slide(velocity)
