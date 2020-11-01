@@ -8,7 +8,7 @@
 [ext_resource path="res://fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://witchbroomstickcat/Test/GameUI.gd" type="Script" id=7]
 [ext_resource path="res://witchbroomstickcat/Test/enemiespawner.gd" type="Script" id=8]
-[ext_resource path="res://sounds/spell.wav" type="AudioStream" id=9]
+[ext_resource path="res://witchbroomstickcat/Test/Boss.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sounds/cackle.wav" type="AudioStream" id=10]
 [ext_resource path="res://sounds/wetspell.wav" type="AudioStream" id=11]
 [ext_resource path="res://sounds/laugh.wav" type="AudioStream" id=12]
@@ -43,10 +43,34 @@ height = 22.4
 [sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 22, 23 ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1, 2, 3 ]
+}
 
 [sub_resource type="Animation" id=5]
 length = 0.7
@@ -66,6 +90,18 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13 ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "move"
@@ -78,7 +114,7 @@ font_data = ExtResource( 6 )
 script = ExtResource( 8 )
 
 [node name="Ground" parent="." instance=ExtResource( 2 )]
-position = Vector2( 726.911, 435.342 )
+position = Vector2( 736, 448 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 589.321, 400.036 )
@@ -130,6 +166,9 @@ scale = Vector2( 5, 5 )
 position = Vector2( 1095.13, 96.494 )
 scale = Vector2( 5, 5 )
 
+[node name="Boss" parent="." instance=ExtResource( 9 )]
+position = Vector2( 5408, 224 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameUI" type="Control" parent="CanvasLayer"]
@@ -145,6 +184,18 @@ margin_left = 291.0
 margin_top = 10.0
 margin_right = 995.0
 margin_bottom = 24.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BossHealth" type="ProgressBar" parent="CanvasLayer/GameUI"]
+visible = false
+margin_left = 291.0
+margin_top = 10.0
+margin_right = 995.0
+margin_bottom = 24.0
+value = 100.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -178,7 +229,6 @@ __meta__ = {
 stream = ExtResource( 10 )
 
 [node name="spell" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
 
 [node name="wetspell" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )

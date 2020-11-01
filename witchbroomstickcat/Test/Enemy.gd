@@ -11,21 +11,12 @@ func _ready():
 	pass
 
 func dead():
-	is_dead = true
-	velocity = Vector2(0, 0)
-	$AnimatedSprite.play("dead")
-	$Timer.start()	
+	if !is_dead:
+		is_dead = true
+		velocity = Vector2(0, 0)
 
+		
 func _physics_process(_delta):
 	if is_dead == false:
 		velocity.x -= speed
-		$AnimatedSprite.play("move")
 		velocity = move_and_slide(velocity)	
-
-func _on_Timer_timeout():
-	queue_free()
-	
-
-
-func _on_VisibilityNotifier2D_screen_exited():
-	queue_free()
