@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://witchbroomstickcat/Test/Player.gd" type="Script" id=1]
 [ext_resource path="res://witchbroomstickcat/Ground/Ground.tscn" type="PackedScene" id=2]
@@ -8,6 +8,10 @@
 [ext_resource path="res://fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://witchbroomstickcat/Test/GameUI.gd" type="Script" id=7]
 [ext_resource path="res://witchbroomstickcat/Test/enemiespawner.gd" type="Script" id=8]
+[ext_resource path="res://sounds/spell.wav" type="AudioStream" id=9]
+[ext_resource path="res://sounds/cackle.wav" type="AudioStream" id=10]
+[ext_resource path="res://sounds/wetspell.wav" type="AudioStream" id=11]
+[ext_resource path="res://sounds/laugh.wav" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -168,3 +172,15 @@ text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Cackle" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="spell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="wetspell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="laugh" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
