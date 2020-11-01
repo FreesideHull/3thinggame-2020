@@ -1,4 +1,4 @@
-extends Node#
+extends Node
 
 var timer = 1000.0
 var spawn_delay = 1
@@ -24,7 +24,7 @@ func _ready():
 				rand.randomize()
 				var y = rand.randf_range(64, 672)
 				enemy.position.y =   y
-				enemy.position.x =  screen_size.x + 100 + x
+				enemy.position.x =  x + 100 + x
 				add_child(enemy)
 				can_spawn = false
 				timer.start()
@@ -33,6 +33,7 @@ func _ready():
 
 func on_timeout_complete():
 	timer = 100.0
+	## check how many enimes we have
 	var en = get_tree().get_nodes_in_group("enemies")
 	if len(en) < 10:
 		can_spawn = true
