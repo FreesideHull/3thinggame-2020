@@ -4,6 +4,8 @@ signal score_update
 signal lives_update
 signal progress_update
 signal boss_health_update
+signal where_is_y
+signal where_is_x
 
 var levelprogress = 0 setget set_progress
 var score = 0 setget set_score
@@ -23,7 +25,12 @@ func set_score(new_score: int) -> void:
 	emit_signal("score_update")
 	
 func set_y(new_y: int) -> void:
-	y = y
+	new_y = $Sprite.get_global_transform().y;
+	emit_signal("where_is_y")
+	
+func set_x(new_x: int) -> void:
+	new_x = $Sprite.get_global_transform().x;
+	emit_signal("where_is_x")
 
 func set_boss_health(new_score: int) -> void:
 	boss_health = new_score

@@ -69,7 +69,7 @@ func get_input():
 		$Sprite.scale.x = 0.045
 		$Sprite.scale.y = 0.045
 	if  Input.is_action_pressed("suicide"):
-		PlayerData.lives -= 1
+	PlayerData.lives -= 1
 	if PlayerData.lives <= 0:
 		get_tree().change_scene("res://witchbroomstickcat/GameOverScreen/GameOvercreen.tscn")
 	if Input.is_action_pressed("menu"):
@@ -103,6 +103,7 @@ func get_input():
 			velocity.x -= Input.get_action_strength("left") * speed
 			$AnimationPlayer.play("Run")
 			facing_right = false;
+			
 		
 
 	
