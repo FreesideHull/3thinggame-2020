@@ -3,11 +3,11 @@
 [ext_resource path="res://witchbroomstickcat/Test/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://art/TheBat.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 0.308242
 height = 13.3438
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -34,13 +34,13 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -207.304, -78.1313 )
 scale = Vector2( 182.417, 30.3503 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -213.464, -105.12 )
 scale = Vector2( -0.049347, 2.22281 )
 z_as_relative = false
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 animation = "dead"
 playing = true
 flip_h = true

@@ -13,7 +13,7 @@ func reset():
 func set_score(new_score: int) -> void:
 	score = new_score
 	emit_signal("score_update")
-
+	
 
 func set_lives(new_value: int) -> void:
 	lives = new_value

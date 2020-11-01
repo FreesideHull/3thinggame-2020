@@ -27,12 +27,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "fall",
+"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "run",
+"name": "fall",
 "speed": 5.0
 } ]
 
@@ -164,10 +164,10 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="CanvasLayer/GameUI"]
-margin_left = 32.0
-margin_top = 64.0
-margin_right = 181.0
-margin_bottom = 102.0
+margin_left = 317.656
+margin_top = 50.6516
+margin_right = 466.656
+margin_bottom = 88.6516
 custom_fonts/font = SubResource( 8 )
 text = "Score: 0"
 __meta__ = {
