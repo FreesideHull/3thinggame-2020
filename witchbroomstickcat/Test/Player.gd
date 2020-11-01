@@ -43,10 +43,11 @@ func _physics_process(delta):
 func get_input():
 	velocity = Vector2()
 	if facing_right == true:
-		$Sprite.scale.x = 1
+		$Sprite.scale.x = 0.045
+		$Sprite.scale.y = 0.045
 	else:
-		$Sprite.scale.x = -1
-		
+		$Sprite.scale.x = 0.045
+		$Sprite.scale.y = 0.045
 		
 	if  Input.is_action_pressed("suicide"):
 		PlayerData.lives -= 1

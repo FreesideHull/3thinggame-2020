@@ -82,7 +82,9 @@ position = Vector2( 726.911, 435.342 )
 
 [node name="Player" type="KinematicBody2D" parent="."]
 position = Vector2( 591.991, 400.036 )
-scale = Vector2( 5, 5 )
+scale = Vector2( 3, 3 )
+z_as_relative = false
+motion/sync_to_physics = true
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
