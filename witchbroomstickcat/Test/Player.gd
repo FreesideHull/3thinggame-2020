@@ -14,7 +14,7 @@ var collided = false;
 
 var can_shoot = true;
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 	
@@ -51,7 +51,10 @@ func get_input():
 	if  Input.is_action_pressed("suicide"):
 		PlayerData.lives -= 1
 	if PlayerData.lives <= 0:
-					get_tree().change_scene("res://witchbroomstickcat/GameOverScreen/GameOverScreen.tscn")
+					get_tree().change_scene("res://witchbroomstickcat/GameOverScreen/GameOvercreen.tscn")
+	if 	Input.is_action_pressed("menu"):
+		PlayerData.lives = 3
+		get_tree().change_scene("res://witchbroomstickcat/TitleScreen/TitleScreen.tscn")
 	
 	if Input.is_action_pressed("up"):
 		velocity.y -= Input.get_action_strength("up") * yspeed
