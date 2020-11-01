@@ -24,13 +24,10 @@ func _ready():
 				rand.randomize()
 				var y = rand.randf_range(64, 672)
 				enemy.position.y =   y
-				enemy.position.x =  x + 100 + x
+				enemy.position.x =  PlayerData.worldpos + 100 + x
 				add_child(enemy)
 				can_spawn = false
 				timer.start()
-
-
-
 
 func on_timeout_complete():
 	timer = 100.0

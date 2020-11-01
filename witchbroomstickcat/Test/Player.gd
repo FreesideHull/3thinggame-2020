@@ -33,6 +33,7 @@ func DistanceTraveled():
 
 		
 func _physics_process(delta):
+	PlayerData.worldpos = $Sprite.get_global_transform().origin.x
 	DistanceTraveled()
 	get_input()
 	velocity = move_and_slide(velocity)
@@ -68,8 +69,6 @@ func get_input():
 	else:
 		$Sprite.scale.x = 0.045
 		$Sprite.scale.y = 0.045
-	if  Input.is_action_pressed("suicide"):
-	PlayerData.lives -= 1
 	if PlayerData.lives <= 0:
 		get_tree().change_scene("res://witchbroomstickcat/GameOverScreen/GameOvercreen.tscn")
 	if Input.is_action_pressed("menu"):
