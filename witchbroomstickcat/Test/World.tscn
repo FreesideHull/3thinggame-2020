@@ -9,16 +9,11 @@
 [ext_resource path="res://witchbroomstickcat/Test/GameUI.gd" type="Script" id=7]
 [ext_resource path="res://witchbroomstickcat/Test/enemiespawner.gd" type="Script" id=8]
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "run",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -28,37 +23,50 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
 "name": "jump",
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 8.0
 height = 22.4
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fall"
+[sub_resource type="Animation" id=3]
 length = 0.2
 loop = true
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
+[sub_resource type="Animation" id=4]
 length = 0.5
 loop = true
 
-[sub_resource type="Animation" id=4]
-resource_name = "Jump"
-length = 0.7
-
 [sub_resource type="Animation" id=5]
-resource_name = "Run"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frames")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=6]
 length = 0.6
 loop = true
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 resource_name = "move"
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=8]
 size = 30
 font_data = ExtResource( 6 )
 
@@ -79,7 +87,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="Player"]
 scale = Vector2( 0.0407854, 0.0414353 )
 z_as_relative = false
-frames = SubResource( 7 )
+frames = SubResource( 1 )
 animation = "run"
 playing = true
 
@@ -92,15 +100,14 @@ limit_bottom = 120
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2( 0, 3.2 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
-autoplay = "Jump"
-anims/Fall = SubResource( 2 )
-anims/Idle = SubResource( 3 )
-anims/Jump = SubResource( 4 )
-anims/Run = SubResource( 5 )
-anims/move = SubResource( 8 )
+anims/Fall = SubResource( 3 )
+anims/Idle = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Run = SubResource( 6 )
+anims/move = SubResource( 7 )
 
 [node name="Music" type="AudioStreamPlayer" parent="Player"]
 pause_mode = 2
@@ -145,7 +152,7 @@ margin_left = 1113.0
 margin_top = 64.0
 margin_right = 1262.0
 margin_bottom = 102.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "Lives: %s"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -156,7 +163,7 @@ margin_left = 32.0
 margin_top = 64.0
 margin_right = 181.0
 margin_bottom = 102.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 8 )
 text = "Score: 0"
 __meta__ = {
 "_edit_use_anchors_": false
