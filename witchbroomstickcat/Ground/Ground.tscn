@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://witchbroomstickcat/Ground/Ground.gd" type="Script" id=1]
 [ext_resource path="res://Art/Environment/ground.png" type="Texture" id=2]
 [ext_resource path="res://witchbroomstickcat/Ground/Ground.tres" type="Animation" id=3]
+[ext_resource path="res://art/Environment/BetaBG.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2277.66, 24.133 )
@@ -19,6 +20,14 @@ scale = Vector2( 1.2296, 0.25 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 0, 1328, 2050, 194 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 2052.13, -41.7232 )
+scale = Vector2( 3.33442, 1.33117 )
+texture = ExtResource( 4 )
+offset = Vector2( -311.726, -47.7075 )
+region_enabled = true
+region_rect = Rect2( 0.492004, 1.959, 751, 497.033 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/scrolling = ExtResource( 3 )
