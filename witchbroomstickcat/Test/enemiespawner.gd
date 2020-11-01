@@ -18,7 +18,7 @@ func _ready():
 	add_child(timer)
 	
 	while (can_spawn == true):
-		for i in range(0, 5):
+		for i in range(0, 3):
 				var enemy = enemyscene.instance()
 				var x = rand.randf_range(1280, 1408)
 				rand.randomize()
