@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://witchbroomstickcat/GameOverScreen/score.gd" type="Script" id=1]
 [ext_resource path="res://fonts/Montserrat-ExtraBold.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://NewGame.gd" type="Script" id=3]
 [ext_resource path="res://witchbroomstickcat/TitleScreen/FadeIn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://art/titile.png" type="Texture" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -137,6 +138,11 @@ __meta__ = {
 
 [node name="FadeIn" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+show_behind_parent = true
+position = Vector2( 640.639, 354.967 )
+texture = ExtResource( 5 )
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/StartGameButton" to="." method="_on_StartGameButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer2/creditsButton" to="." method="_on_creditsButton_pressed"]
 [connection signal="fade_finished" from="FadeIn" to="." method="_on_FadeIn_fade_finished"]
