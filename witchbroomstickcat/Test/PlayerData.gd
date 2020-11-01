@@ -28,7 +28,6 @@ func set_progress(progress: int) -> void:
 	levelprogress = progress
 	emit_signal("progress_update")
 
-
 func set_lives(new_value: int) -> void:
 	lives = new_value
 	emit_signal("lives_update")

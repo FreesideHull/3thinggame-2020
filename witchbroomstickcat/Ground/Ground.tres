@@ -5,7 +5,7 @@ resource_name = "scrolling"
 length = 1.7
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/path = NodePath("ParallaxBackground/Sprite:region_rect")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -17,7 +17,7 @@ tracks/0/keys = {
 "values": [ Rect2( 0, 1328, 2050, 194 ), Rect2( 1025, 1328, 2050, 194 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("background:region_rect")
+tracks/1/path = NodePath("ParallaxBackground/background:region_rect")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false

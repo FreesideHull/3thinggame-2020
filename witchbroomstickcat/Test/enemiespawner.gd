@@ -28,5 +28,6 @@ func _ready():
 		can_spawn = false
 		timer.start()
 
+
 func on_timeout_complete():
 	can_spawn = true

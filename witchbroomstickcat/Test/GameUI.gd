@@ -12,7 +12,6 @@ func _ready():
 	PlayerData.connect("progress_update", self, "update_progress")
 	PlayerData.connect("boss_health_update", self, "update_boss_health")
 	
-	
 	update_interface()
 
 

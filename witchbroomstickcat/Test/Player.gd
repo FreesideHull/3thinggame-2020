@@ -33,8 +33,10 @@ func DistanceTraveled():
 
 		
 func _physics_process(delta):
+	DistanceTraveled()
 	get_input()
 	velocity = move_and_slide(velocity)
+
 	
 	if !collided:
 		for i in get_slide_count():
