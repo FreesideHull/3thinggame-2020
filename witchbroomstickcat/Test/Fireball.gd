@@ -18,6 +18,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Fireball_body_entered(body):
 	if "Enemy" in body.name:
+		PlayerData.score = PlayerData.score + 10 
 		body.dead()
 	if "Boss" in body.name:
 		body.hit() 
