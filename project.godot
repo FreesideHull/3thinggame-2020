@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Main"
+config/name="witch cat broomstick"
 run/main_scene="res://witchbroomstickcat/TitleScreen/TitleScreen.tscn"
 
 [audio]
