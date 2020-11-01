@@ -15,16 +15,23 @@ var collided = false;
 
 var can_shoot = true;
 
+const map_length = 50;
+
+
+var isBossFight = false;
+var bossPossition: Vector2;
 
 func DistanceTraveled():
+	if isBossFight:
+		return
 	var pos = $Sprite.get_global_transform().origin.x / 100;
-	var percent = pos / 240 * 100
-	print(percent)
-	PlayerData.levelprogress = percent;
-	#print(pos.x / 5)
-	#var progress = pos / 10
+	distanceTraveled = pos / map_length * 100
+	PlayerData.levelprogress = distanceTraveled;
+	if distanceTraveled >= 100:
+		isBossFight = true;	
+		bossPossition = $Sprite.get_global_transform().origin;
 
-
+		
 func _physics_process(delta):
 	get_input()
 	velocity = move_and_slide(velocity)
@@ -33,7 +40,6 @@ func _physics_process(delta):
 	if !collided:
 		for i in get_slide_count():
 			var collision = get_slide_collision(i)
-			print(collision.collider.name)
 			if collision != null && collision.collider != null && "Enemy" in collision.collider.name:
 				collided = true;
 				can_shoot = false;
@@ -60,7 +66,7 @@ func get_input():
 	else:
 		$Sprite.scale.x = -1
 		
-		
+
 	if  Input.is_action_pressed("suicide"):
 		PlayerData.lives -= 1
 	if PlayerData.lives <= 0:
@@ -80,9 +86,19 @@ func get_input():
 		get_parent().add_child(fireball)
 		fireball.position = $FireballOrigin.global_position
 
-	
-	velocity.x += 1 * speed
+	if !isBossFight:
+		velocity.x += 1 * speed
+	else:
+		var pos = $Sprite.get_global_transform().origin;
+		if Input.is_action_pressed("right") && pos.x < bossPossition.x + 500:
+			velocity.x += Input.get_action_strength("right") * speed
+			$AnimationPlayer.play("Run")
+			facing_right = true;
+		elif Input.is_action_pressed("left") && pos.x > bossPossition.x - 500:
+			velocity.x -= Input.get_action_strength("left") * speed
+			$AnimationPlayer.play("Run")
+			facing_right = false;
+		
 
-	
 	
 	#velocity = velocity.normalized() * speed
